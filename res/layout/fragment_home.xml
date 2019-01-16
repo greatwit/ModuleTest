@@ -1,65 +1,82 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:wheel="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/scrollview_main"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@color/gray_light_1"
-    android:scrollbars="none" >
+    tools:context="com.wise.mediarec.MainActivity" >
 
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <TableLayout                
+        android:id="@+id/table1"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:focusable="true"
-        android:focusableInTouchMode="true" >
-
-
-        <RelativeLayout
-            android:id="@+id/list_menu_2"
-            android:layout_width="match_parent"
+        android:stretchColumns="*"
+        android:padding="3dip">
+        
+    <TableRow>
+        <Button
+            android:id="@+id/camera_upper"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/list_menu_1"
-            android:background="@color/gray_light_1" >
-
-            <FrameLayout
-                android:id="@+id/progress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_gravity="center"
-                android:layout_marginTop="9dp"
-                android:orientation="vertical"
-                android:visibility="gone" >
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-
-
-                    <TextView
-                        android:id="@+id/progressWheel_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/progressWheel"
-                        android:layout_centerHorizontal="true"
-                        android:layout_gravity="center"
-                        android:text="@string/loading"
-                        android:textColor="@color/blue_powder" />
-                </RelativeLayout>
-            </FrameLayout>
-
-
-        </RelativeLayout>
-
-        <ImageView
-            android:id="@+id/list_ad_pic_1"
-            android:layout_width="match_parent"
+            android:layout_column="0"
+            android:text="CameraUpper" />
+        <Button
+            android:id="@+id/camera_native"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/list_menu_2"
-            android:adjustViewBounds="true"
-            android:contentDescription="@string/app_name"
-            android:scaleType="centerInside"
-            android:visibility="gone" />
-    </RelativeLayout>
+            android:layout_column="1"
+            android:text="CameraNative" />
+    </TableRow>
+    
+    <TableRow>
+        <Button
+            android:id="@+id/encode_upper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:text="EncodeUpper" />
+        <Button
+            android:id="@+id/decode_upper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:text="DecodeUpper" />
+    </TableRow>
+    
+    <TableRow>
+        <Button
+            android:id="@+id/encode_native"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:text="EncodeNative" />
+        <Button
+            android:id="@+id/decode_native"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:text="DecodeNative" />
+    </TableRow>
+    
+    <TableRow>
+        <Button
+            android:id="@+id/play_rec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:text="PlayRecord" />
+        <Button
+            android:id="@+id/play_ext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:text="PlayExtract" />
+    </TableRow>
+    
+</TableLayout>
 
-</ScrollView>
+
+</RelativeLayout>

@@ -30,11 +30,16 @@
     
     <color name="black_light">#333333</color>
     
+    <color name="white_overlay">#ffffffff</color>
+    <color name="black_overlay">#ff000000</color>
+    <color name="red_overlay">#ffff0000</color>
+    
     <!-- captrue -->
     <color name="viewfinder_frame">#ff4DA8D9</color>
     <color name="viewfinder_laser">#ff4DA8D9</color>
     <color name="viewfinder_mask">#33ffffff</color>
     <color name="possible_result_points">#c0ffff00</color>
     <color name="result_view">#b0000000</color>
+    
     
 </resources>

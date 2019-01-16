@@ -1112,6 +1112,7 @@ containing a value of this type.
     public static final class color {
         public static final int black=0x7f040006;
         public static final int black_light=0x7f040015;
+        public static final int black_overlay=0x7f040017;
         public static final int blue_powder=0x7f040002;
         public static final int colorAccent=0x7f040005;
         public static final int colorPrimary=0x7f040003;
@@ -1128,17 +1129,19 @@ containing a value of this type.
         public static final int green=0x7f040001;
         public static final int hole_gray_blue=0x7f04000b;
         public static final int holo_blue_light=0x7f04000a;
-        public static final int possible_result_points=0x7f040019;
+        public static final int possible_result_points=0x7f04001c;
         public static final int red=0x7f040000;
-        public static final int result_view=0x7f04001a;
+        public static final int red_overlay=0x7f040018;
+        public static final int result_view=0x7f04001d;
         public static final int transparent=0x7f040010;
         public static final int transparent_white=0x7f040009;
         /**  captrue 
          */
-        public static final int viewfinder_frame=0x7f040016;
-        public static final int viewfinder_laser=0x7f040017;
-        public static final int viewfinder_mask=0x7f040018;
+        public static final int viewfinder_frame=0x7f040019;
+        public static final int viewfinder_laser=0x7f04001a;
+        public static final int viewfinder_mask=0x7f04001b;
         public static final int white=0x7f040008;
+        public static final int white_overlay=0x7f040016;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -1165,6 +1168,9 @@ containing a value of this type.
         public static final int ic_personal_select=0x7f020007;
         public static final int ic_service_normal=0x7f020008;
         public static final int ic_service_select=0x7f020009;
+        public static final int launcher=0x7f02000a;
+        public static final int record_start=0x7f02000b;
+        public static final int record_stop=0x7f02000c;
     }
     public static final class id {
         public static final int BLOCK=0x7f080002;
@@ -1178,51 +1184,66 @@ containing a value of this type.
         public static final int TOP=0x7f080001;
         public static final int TRIANGLE=0x7f080004;
         public static final int bottom=0x7f08000d;
-        public static final int community_name=0x7f08001f;
-        public static final int fl_body=0x7f080013;
-        public static final int icon_text=0x7f080028;
-        public static final int item_qr_rl=0x7f080022;
-        public static final int iv_tab_icon=0x7f08002b;
+        public static final int camera_native=0x7f08001d;
+        public static final int camera_upper=0x7f08001c;
+        public static final int capture_surfaceview=0x7f080011;
+        public static final int capture_textview_information=0x7f080013;
+        public static final int community_name=0x7f080028;
+        public static final int crm_count_time=0x7f080012;
+        public static final int decode_native=0x7f080021;
+        public static final int decode_upper=0x7f08001f;
+        public static final int encode_native=0x7f080020;
+        public static final int encode_upper=0x7f08001e;
+        public static final int fl_body=0x7f08001a;
+        public static final int ib_record=0x7f080014;
+        public static final int icon_text=0x7f080031;
+        public static final int item_qr_rl=0x7f08002b;
+        public static final int iv_tab_icon=0x7f080034;
         public static final int left=0x7f08000e;
-        public static final int list_ad_pic_1=0x7f08001a;
-        public static final int list_menu_1=0x7f080016;
-        public static final int list_menu_2=0x7f080015;
-        public static final int list_qr_title=0x7f080024;
-        public static final int list_qr_title_icon=0x7f080023;
-        public static final int ll_tap=0x7f080029;
-        public static final int main_title_bar=0x7f080011;
-        public static final int main_title_bar_goback=0x7f080025;
-        public static final int main_title_bar_icon=0x7f080027;
-        public static final int main_title_bar_text=0x7f080026;
-        public static final int personal_list=0x7f080020;
-        public static final int personal_top=0x7f08001c;
-        public static final int profile_image=0x7f08001e;
-        public static final int progress=0x7f080017;
-        public static final int progressWheel=0x7f080019;
-        public static final int progressWheel_text=0x7f080018;
+        public static final int list_qr_title=0x7f08002d;
+        public static final int list_qr_title_icon=0x7f08002c;
+        public static final int ll_tap=0x7f080032;
+        public static final int main_title_bar=0x7f080018;
+        public static final int main_title_bar_goback=0x7f08002e;
+        public static final int main_title_bar_icon=0x7f080030;
+        public static final int main_title_bar_text=0x7f08002f;
+        public static final int personal_list=0x7f080029;
+        public static final int personal_top=0x7f080025;
+        public static final int play_ext=0x7f080023;
+        public static final int play_rec=0x7f080022;
+        public static final int profile_image=0x7f080027;
         public static final int right=0x7f08000f;
-        public static final int rtv_msg_tip=0x7f08002c;
-        public static final int scrollview_main=0x7f080014;
-        public static final int scrollview_personal=0x7f08001b;
-        public static final int scrollview_service=0x7f080021;
-        public static final int tab_layout=0x7f080012;
+        public static final int rtv_msg_tip=0x7f080035;
+        public static final int scrollview_personal=0x7f080024;
+        public static final int scrollview_service=0x7f08002a;
+        public static final int sfv_video=0x7f080015;
+        public static final int surfaceFrame=0x7f080016;
+        public static final int surfaceViewPlay=0x7f080017;
+        public static final int tab_layout=0x7f080019;
+        public static final int table1=0x7f08001b;
         public static final int top=0x7f080010;
-        public static final int tv_tab_title=0x7f08002a;
-        public static final int user_name=0x7f08001d;
+        public static final int tv_tab_title=0x7f080033;
+        public static final int user_name=0x7f080026;
         public static final int x=0x7f08000a;
         public static final int y=0x7f08000b;
         public static final int z=0x7f08000c;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
-        public static final int fragment_home=0x7f030001;
-        public static final int fragment_personal=0x7f030002;
-        public static final int fragment_service=0x7f030003;
-        public static final int include_title_bar=0x7f030004;
-        public static final int layout_tab_bottom=0x7f030005;
-        public static final int layout_tab_left=0x7f030006;
-        public static final int layout_tab_right=0x7f030007;
-        public static final int layout_tab_top=0x7f030008;
+        public static final int activity_camera_native=0x7f030000;
+        public static final int activity_camera_upper=0x7f030001;
+        public static final int activity_decode=0x7f030002;
+        public static final int activity_encode=0x7f030003;
+        public static final int activity_main=0x7f030004;
+        public static final int activity_mcndk=0x7f030005;
+        public static final int activity_rec_native=0x7f030006;
+        public static final int fragment_home=0x7f030007;
+        public static final int fragment_personal=0x7f030008;
+        public static final int fragment_service=0x7f030009;
+        public static final int include_title_bar=0x7f03000a;
+        public static final int layout_tab_bottom=0x7f03000b;
+        public static final int layout_tab_left=0x7f03000c;
+        public static final int layout_tab_right=0x7f03000d;
+        public static final int layout_tab_top=0x7f03000e;
     }
     public static final class menu {
         public static final int main=0x7f070000;
