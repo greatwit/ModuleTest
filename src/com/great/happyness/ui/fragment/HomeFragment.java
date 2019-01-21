@@ -7,9 +7,11 @@ import com.great.happyness.wise.DecodeNativeActivity;
 import com.great.happyness.wise.DecodeUpperActivity;
 import com.great.happyness.wise.EncodeUpperActivity;
 import com.great.happyness.wise.EncodeNativeActivity;
-import com.great.happyness.wise.McNdkActivity;
+import com.great.happyness.wise.NdkMcActivity;
 import com.great.happyness.wise.CameraNativeActivity;
 import com.great.happyness.wise.NativeMediaRecorderActivity;
+import com.great.happyness.wise.NdkDecodecActivity;
+import com.great.happyness.wise.NdkEncodecActivity;
 import com.great.happyness.wise.R;
 import com.great.happyness.wise.CameraUpperActivity;
 
@@ -35,7 +37,8 @@ public class HomeFragment extends Fragment
 	private Context mContext;
 	private View view;
 	private Button camera_upper = null, camera_native = null, play_rec = null, 
-			play_ext = null, encode_upper = null, decode_upper = null, encode_native = null, decode_native = null;
+			play_ext = null, encode_upper = null, decode_upper = null, 
+			encode_native = null, decode_native = null, mcndk_encoder = null, mcndk_decoder = null;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -67,7 +70,12 @@ public class HomeFragment extends Fragment
 		play_rec.setOnClickListener(this);
 		play_ext = (Button)view.findViewById(R.id.play_ext);
 		play_ext.setOnClickListener(this);
-//		
+
+		mcndk_encoder = (Button)view.findViewById(R.id.mcndk_encoder);
+		mcndk_encoder.setOnClickListener(this);
+		mcndk_decoder = (Button)view.findViewById(R.id.mcndk_decoder);
+		mcndk_decoder.setOnClickListener(this);
+		
 //		btnNativeRec = (Button)view.findViewById(R.id.btnNativeRec);
 //		btnNativeRec.setOnClickListener(this);
 //		
@@ -118,11 +126,21 @@ public class HomeFragment extends Fragment
 				break;
 				
 			case R.id.play_rec:
-				intent.setClass(mContext, NativeMediaRecorderActivity.class);
+				intent.setClass(mContext, NativeMediaRecorderActivity.class);//
 				startActivity(intent);
 				break;
 			case R.id.play_ext:
-				intent.setClass(mContext, McNdkActivity.class);
+				intent.setClass(mContext, NdkMcActivity.class);
+				startActivity(intent);
+				break;
+				
+			case R.id.mcndk_encoder:
+				intent.setClass(mContext, NdkEncodecActivity.class);//
+				startActivity(intent);
+				break;
+				
+			case R.id.mcndk_decoder:
+				intent.setClass(mContext, NdkDecodecActivity.class);//
 				startActivity(intent);
 				break;
 				

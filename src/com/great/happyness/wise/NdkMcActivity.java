@@ -11,11 +11,10 @@ import com.great.happyness.medialib.NativeMcndk;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.os.Environment;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
-public class McNdkActivity extends Activity implements SurfaceHolder.Callback{
+public class NdkMcActivity extends Activity implements SurfaceHolder.Callback{
 	private SurfaceHolder holder = null;
 	private NativeMcndk mCodec = new NativeMcndk();
 	

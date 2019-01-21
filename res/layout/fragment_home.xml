@@ -76,6 +76,21 @@
             android:text="PlayExtract" />
     </TableRow>
     
+    <TableRow>
+        <Button
+            android:id="@+id/mcndk_encoder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:text="McNDK_ENCODER" />
+        <Button
+            android:id="@+id/mcndk_decoder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:text="McNDK_DECODER" />
+    </TableRow>
+    
 </TableLayout>
 
 

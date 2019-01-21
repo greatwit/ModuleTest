@@ -32,7 +32,7 @@ public class AvcEncoder
 	 
 	public byte[] configbyte; 
 
-	private static String path = GApplication.getRootPath() + "/upper.h264";
+	public static String path = GApplication.getRootPath() + "/upper.h264";
 	private BufferedOutputStream outputStream;
 	FileOutputStream outStream;
 	

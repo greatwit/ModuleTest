@@ -24,14 +24,16 @@
             </intent-filter>
         </activity>
         
-        <activity android:name=".EncodeNativeActivity" android:screenOrientation="portrait"/>
         <activity android:name=".CameraUpperActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".CameraNativeActivity" android:screenOrientation="portrait"/>
         <activity android:name=".EncodeUpperActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".DecodeUpperActivity" android:screenOrientation="portrait"/>
         <activity android:name=".EncodeNativeActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".DecodeUpperActivity" android:screenOrientation="portrait"/>
         <activity android:name=".DecodeNativeActivity" android:screenOrientation="portrait"/>
         <activity android:name=".NativeMediaRecorderActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".McNdkActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".NdkMcActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".NdkEncodecActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".NdkDecodecActivity" android:screenOrientation="portrait"/>
     </application>
 
     

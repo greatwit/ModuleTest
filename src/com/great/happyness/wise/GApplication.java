@@ -73,7 +73,7 @@ public class GApplication extends Application {
     }
 
     public static String getRootPath() {
-    	return Environment.getExternalStorageDirectory().getAbsolutePath()+"/"+getAppName();
+    	return Environment.getExternalStorageDirectory().toString()+"/"+getAppName();
     }
     
     /**
@@ -84,7 +84,7 @@ public class GApplication extends Application {
 	    File file = new File(path);
 	    //判断文件夹是否存在,如果不存在则创建文件夹
 	    if (!file.exists()) {
-	    file.mkdir();
+	    	file.mkdir();
 	    }
     }
     

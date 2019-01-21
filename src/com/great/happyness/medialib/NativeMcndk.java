@@ -31,7 +31,12 @@ public class NativeMcndk
 	public native boolean StartExtratorPlayer(String filepath, Surface surface);
 	public native boolean StopExtratorPlayer();
 	
-	public native boolean StartFileDecodec(Surface surface);
-	public native boolean StopFileDecodec();
+	public native boolean StartH264Extrator(String filepath, Surface surface, int w, int h);
+	public native void 	  SetExtratorInt32(String key, int value);
+	public native boolean StopH264Extrator();
+	
+	public native boolean StartH264Decodec(String filepath, Surface surface, int w, int h);
+	public native void 	  SetDecodecInt32(String key, int value);
+	public native boolean StopH264Decodec();
 }
 
