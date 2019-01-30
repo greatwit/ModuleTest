@@ -8,8 +8,10 @@ import com.great.happyness.wise.DecodeUpperActivity;
 import com.great.happyness.wise.EncodeUpperActivity;
 import com.great.happyness.wise.EncodeNativeActivity;
 import com.great.happyness.wise.NdkMcActivity;
+import com.great.happyness.medialib.NativeNetMedia;
 import com.great.happyness.wise.CameraNativeActivity;
 import com.great.happyness.wise.NativeMediaRecorderActivity;
+import com.great.happyness.wise.NativeNetMediaActivity;
 import com.great.happyness.wise.NdkDecodecActivity;
 import com.great.happyness.wise.NdkEncodecActivity;
 import com.great.happyness.wise.R;
@@ -17,6 +19,7 @@ import com.great.happyness.wise.CameraUpperActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -36,9 +39,13 @@ public class HomeFragment extends Fragment
 	private final String TAG = "HomeFragment";
 	private Context mContext;
 	private View view;
+	private boolean mbServerStart = false;
 	private Button camera_upper = null, camera_native = null, play_rec = null, 
 			play_ext = null, encode_upper = null, decode_upper = null, 
-			encode_native = null, decode_native = null, mcndk_encoder = null, mcndk_decoder = null;
+			encode_native = null, decode_native = null, mcndk_encoder = null, 
+			mcndk_decoder = null, start_server = null, start_client = null;
+	
+	NativeNetMedia mNetMedia = new NativeNetMedia();
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -75,6 +82,11 @@ public class HomeFragment extends Fragment
 		mcndk_encoder.setOnClickListener(this);
 		mcndk_decoder = (Button)view.findViewById(R.id.mcndk_decoder);
 		mcndk_decoder.setOnClickListener(this);
+		
+		start_server = (Button)view.findViewById(R.id.start_server);
+		start_server.setOnClickListener(this);
+		start_client = (Button)view.findViewById(R.id.start_client);
+		start_client.setOnClickListener(this);
 		
 //		btnNativeRec = (Button)view.findViewById(R.id.btnNativeRec);
 //		btnNativeRec.setOnClickListener(this);
@@ -141,6 +153,27 @@ public class HomeFragment extends Fragment
 				
 			case R.id.mcndk_decoder:
 				intent.setClass(mContext, NdkDecodecActivity.class);//
+				startActivity(intent);
+				break;
+				
+			case R.id.start_server:
+				if(!mbServerStart){
+					mNetMedia.StartNetWork();
+					mNetMedia.StartServer("127.0.0.1", 31000);
+					start_server.setTextColor(Color.GREEN);
+					start_server.setText("StopServer");
+					mbServerStart = true;
+				}else {
+					mNetMedia.StopServer( );
+					mNetMedia.StopNetWork();
+					start_server.setTextColor(Color.BLACK);
+					start_server.setText("StartServer");
+					mbServerStart = false;
+				}
+				break;
+				
+			case R.id.start_client:
+				intent.setClass(mContext, NativeNetMediaActivity.class);//
 				startActivity(intent);
 				break;
 				

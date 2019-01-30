@@ -91,6 +91,21 @@
             android:text="McNDK_DECODER" />
     </TableRow>
     
+    <TableRow>
+        <Button
+            android:id="@+id/start_server"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:text="StartServer" />
+        <Button
+            android:id="@+id/start_client"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:text="StartVideo" />
+    </TableRow>
+    
 </TableLayout>
 
 
