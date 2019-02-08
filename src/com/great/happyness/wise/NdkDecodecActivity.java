@@ -27,7 +27,7 @@ public class NdkDecodecActivity extends Activity implements SurfaceHolder.Callba
 	
 	@Override
 	public void surfaceCreated(SurfaceHolder holder) {
-		String filepath = AvcEncoder.path;
+		String filepath = AvcEncoder.path;//NdkEncodecActivity.mFilepath;
 		mCodec.SetExtratorInt32("width", 1280);
 		mCodec.SetExtratorInt32("height", 720);
 		mCodec.SetExtratorInt32("durationUs", 12498744);

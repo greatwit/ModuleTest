@@ -64,7 +64,7 @@ public class EncodeNativeActivity extends Activity implements SurfaceHolder.Call
             values[i] 	= entry.getValue();
             ++i;
         } 
-        String readpath = GApplication.getRootPath()+"/"+"720p.yuv";
+        String readpath  = GApplication.getRootPath()+"/"+"720p.yuv";
         String writepath = GApplication.getRootPath()+"/"+"720p.h264";
         mCodec.StartEncoderTest(keys, values, holder.getSurface(), MediaCodec.CONFIGURE_FLAG_ENCODE, readpath, writepath);
 	}

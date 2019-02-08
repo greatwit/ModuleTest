@@ -12,4 +12,11 @@
     <string name="announcement">公告</string>
     <string name="payment">缴费</string>
     <string name="qr">二维码</string>
+    <string name="addr">Addr:</string>
+    <string name="ip_addr">地址</string>
+    <string name="port_addr">端口</string>
+    <string name="file">File:</string>
+    <string name="file_addr">file</string>
+    <string name="local">Local:</string>
+    <string name="localip">local ip</string>
 </resources>

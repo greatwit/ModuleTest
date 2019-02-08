@@ -10,6 +10,7 @@ import com.great.happyness.wise.EncodeNativeActivity;
 import com.great.happyness.wise.NdkMcActivity;
 import com.great.happyness.medialib.NativeNetMedia;
 import com.great.happyness.wise.CameraNativeActivity;
+import com.great.happyness.wise.CameraTest7Activity;
 import com.great.happyness.wise.NativeMediaRecorderActivity;
 import com.great.happyness.wise.NativeNetMediaActivity;
 import com.great.happyness.wise.NdkDecodecActivity;
@@ -20,6 +21,7 @@ import com.great.happyness.wise.CameraUpperActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build.VERSION;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -115,7 +117,18 @@ public class HomeFragment extends Fragment
 				startActivity(intent);
 				break;
 			case R.id.camera_native:
-				intent.setClass(mContext, CameraNativeActivity.class);
+				int sysVersion = Integer.parseInt(VERSION.SDK);
+				switch (sysVersion) {
+				case 23:
+					intent.setClass(mContext, CameraNativeActivity.class);//
+					break;
+				case 24:
+				case 25:
+					intent.setClass(mContext, CameraTest7Activity.class);
+					break;
+				default:
+					break;
+				}
 				startActivity(intent);
 				break;
 				

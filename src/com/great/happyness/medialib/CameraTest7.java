@@ -4,12 +4,12 @@ import android.util.Log;
 import android.view.Surface;
 
 @SuppressWarnings("deprecation")
-public class NativeCamera
+public class CameraTest7
 {
-	private static String TAG = NativeCamera.class.getSimpleName();
+	private static String TAG = CameraTest7.class.getSimpleName();
     static {
 		try {
-			System.loadLibrary("NativeCamera");
+			System.loadLibrary("camera2ndk");
 		}
 		catch(Throwable e) { 
 			Log.e(TAG, "load library failed error:"+e.toString());
@@ -22,13 +22,5 @@ public class NativeCamera
     public native void 	  SetCameraParameter(String param);
     public native void    StartPreview(Surface surface);
     public native void    StopPreview();
-    
-    public native boolean StartCamndkEncodec(String filepath, Surface surface);
-    public native boolean StopCamndkEncodec();
-    public native String  McndkGetCameraParam();
-    public native void 	  McndkSetCameraParam(String param);
-    public native boolean McndkSetInt32(String key, int value);
-    public native boolean McndkOpenCamera(int camid, String packName);
-    public native boolean McndkCloseCamera();
 }
 

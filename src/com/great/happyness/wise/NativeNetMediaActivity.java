@@ -2,16 +2,24 @@ package com.great.happyness.wise;
 
 import com.great.happyness.medialib.NativeNetMedia;
 import com.great.happyness.mediautils.AvcEncoder;
+import com.great.happyness.mediautils.Setting;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 public class NativeNetMediaActivity extends Activity implements SurfaceHolder.Callback{
+	private final String TAG = "NativeNetMediaActivity";
+	
 	private SurfaceHolder holder = null;
 	NativeNetMedia mNetMedia = new NativeNetMedia();
 	
+	Setting mDataSetting 		= new Setting();
+	String addr = mDataSetting.readData(Setting.DADDR);
+	String port = mDataSetting.readData(Setting.DPORT);
+	String file = mDataSetting.readData(Setting.DFILE);
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -27,8 +35,8 @@ public class NativeNetMediaActivity extends Activity implements SurfaceHolder.Ca
 	
 	@Override
 	public void surfaceCreated(SurfaceHolder holder) {
-		String filepath = AvcEncoder.path;
-		mNetMedia.StartVideoView("192.168.100.67", 31000, "/sdcard/camera_1280x720.h264", holder.getSurface());
+		Log.e(TAG, "addr:"+addr+" port:"+port+" file:"+file);
+		mNetMedia.StartVideoView(addr, Integer.parseInt(port), file, holder.getSurface());
 	}
 
 	@Override

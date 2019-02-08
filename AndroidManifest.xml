@@ -26,6 +26,7 @@
         
         <activity android:name=".CameraUpperActivity" android:screenOrientation="portrait"/>
         <activity android:name=".CameraNativeActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".CameraTest7Activity" android:screenOrientation="portrait"/>
         <activity android:name=".EncodeUpperActivity" android:screenOrientation="portrait"/>
         <activity android:name=".EncodeNativeActivity" android:screenOrientation="portrait"/>
         <activity android:name=".DecodeUpperActivity" android:screenOrientation="portrait"/>
