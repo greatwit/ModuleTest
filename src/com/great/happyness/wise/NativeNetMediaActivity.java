@@ -1,7 +1,6 @@
 package com.great.happyness.wise;
 
 import com.great.happyness.medialib.NativeNetMedia;
-import com.great.happyness.mediautils.AvcEncoder;
 import com.great.happyness.mediautils.Setting;
 
 import android.app.Activity;
@@ -36,7 +35,8 @@ public class NativeNetMediaActivity extends Activity implements SurfaceHolder.Ca
 	@Override
 	public void surfaceCreated(SurfaceHolder holder) {
 		Log.e(TAG, "addr:"+addr+" port:"+port+" file:"+file);
-		mNetMedia.StartVideoView(addr, Integer.parseInt(port), file, holder.getSurface());
+		mNetMedia.StartRealVideoRecv(addr, Integer.parseInt(port), holder.getSurface());
+		//mNetMedia.StartFileVideoRecv(addr, Integer.parseInt(port), file, holder.getSurface());
 	}
 
 	@Override
@@ -46,7 +46,7 @@ public class NativeNetMediaActivity extends Activity implements SurfaceHolder.Ca
 
 	@Override
 	public void surfaceDestroyed(SurfaceHolder holder) {
-		mNetMedia.StopVideoView();
+		mNetMedia.StopVideoRecv();
 	}
 	
 }

@@ -1,5 +1,9 @@
 package com.great.happyness.medialib;
 
+import org.greenrobot.eventbus.EventBus;
+
+import com.great.happyness.evenbus.event.CmdEvent;
+
 import android.annotation.SuppressLint;
 import android.media.MediaCodec;
 import android.util.Log;
@@ -12,8 +16,16 @@ public class NativeNetMedia
 	
 	private static MediaCodec mCodec = null;
 	
+	public static  int SockID;
+	
 	public NativeNetMedia()
 	{
+	}
+	
+	public void onMediaCall(int sockId) {
+		EventBus.getDefault().post(new CmdEvent(sockId));
+		Log.e(TAG, "onMediaCall sockId:"+sockId);
+		SockID = sockId;
 	}
 	
 	static
@@ -31,13 +43,27 @@ public class NativeNetMedia
 	
 	public native boolean StartNetWork();
 	public native boolean StopNetWork();
+	
 	public native boolean StartServer(String bindIp, int bindPort);
 	public native boolean StopServer();
+	public native boolean StartRealView(int sockId);
+	
+    public native boolean StartRealCamCodec(Surface surface);
+    public native boolean StopRealCamCodec();
+    public native String  GetRealCameraParam();
+    public native void 	  SetRealCameraParam(String param);
+    public native boolean RealCodecSetInt32(String key, int value);
+    public native boolean OpenRealCamera(int camid, String packName);
+    public native boolean CloseRealCamera();
+	
+	
 	
 	public native boolean StartFileRecv(String destIp, int destPort, String remoteFile, String saveFile);
 	public native boolean StopFileRecv();
-	public native boolean StartVideoView(String destIp, int destPort, String remoteFile, Surface surface);
-	public native boolean StopVideoView();
+	
+	public native boolean StartRealVideoRecv(String destIp, int destPort, Surface surface);
+	public native boolean StartFileVideoRecv(String destIp, int destPort, String remoteFile, Surface surface);
+	public native boolean StopVideoRecv();
 
 }
 

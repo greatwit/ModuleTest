@@ -35,24 +35,25 @@ public class NdkEncodecActivity extends Activity implements SurfaceHolder.Callba
 	
 	@Override
 	public void surfaceCreated(SurfaceHolder holder) {
+		int width = 1920,height = 1080;
 		mCamera.McndkOpenCamera(0, "com.great.happyness.wise");
 		CameraParam campara = new CameraParam();
 		String para = mCamera.McndkGetCameraParam();
 		campara.unflatten(para);
 		campara.setPreviewFormat(ImageFormat.NV21);
-		campara.setPreviewSize(1280, 720);
+		campara.setPreviewSize(width, height);
 		String flat = campara.flatten();
 		Log.e(TAG, "camera para:"+flat);
 		mCamera.McndkSetCameraParam(flat);
 		
-		mCamera.McndkSetInt32("width", 1280);
-		mCamera.McndkSetInt32("height", 720);
+		mCamera.McndkSetInt32("width", width);
+		mCamera.McndkSetInt32("height", height);
 		//mCamera.McndkSetInt32("color-format", 12498744);
 		//mCamera.McndkSetInt32("max-input-size", 38981);
-		mCamera.McndkSetInt32(MediaFormat.KEY_COLOR_FORMAT, MediaCodecInfo.CodecCapabilities.COLOR_FormatYUV420Planar);    
+		mCamera.McndkSetInt32(MediaFormat.KEY_COLOR_FORMAT, MediaCodecInfo.CodecCapabilities.COLOR_FormatYUV420SemiPlanar);//COLOR_FormatYUV420Planar);    
 		mCamera.McndkSetInt32(MediaFormat.KEY_BIT_RATE, 2500000);
-		mCamera.McndkSetInt32(MediaFormat.KEY_FRAME_RATE, 30);
-		mCamera.McndkSetInt32(MediaFormat.KEY_I_FRAME_INTERVAL, 1);
+		mCamera.McndkSetInt32(MediaFormat.KEY_FRAME_RATE, 25);
+		mCamera.McndkSetInt32(MediaFormat.KEY_I_FRAME_INTERVAL, 2);
 
 		mCamera.StartCamndkEncodec(mFilepath, holder.getSurface());
 	}

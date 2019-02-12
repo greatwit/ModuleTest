@@ -36,6 +36,7 @@
         <activity android:name=".NdkEncodecActivity" android:screenOrientation="portrait"/>
         <activity android:name=".NdkDecodecActivity" android:screenOrientation="portrait"/>
         <activity android:name=".NativeNetMediaActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".NdkRealServerActivity" android:screenOrientation="portrait"/>
     </application>
 
     

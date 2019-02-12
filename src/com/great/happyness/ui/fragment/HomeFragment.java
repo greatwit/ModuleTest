@@ -8,6 +8,13 @@ import com.great.happyness.wise.DecodeUpperActivity;
 import com.great.happyness.wise.EncodeUpperActivity;
 import com.great.happyness.wise.EncodeNativeActivity;
 import com.great.happyness.wise.NdkMcActivity;
+import com.great.happyness.wise.NdkRealServerActivity;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
+import com.great.happyness.evenbus.event.CmdEvent;
 import com.great.happyness.medialib.NativeNetMedia;
 import com.great.happyness.wise.CameraNativeActivity;
 import com.great.happyness.wise.CameraTest7Activity;
@@ -54,6 +61,7 @@ public class HomeFragment extends Fragment
 		mContext = getActivity();
 		// 注册EventBus
 		super.onCreate(savedInstanceState);
+		
 	}
 
 
@@ -98,14 +106,28 @@ public class HomeFragment extends Fragment
 //		
 //		btnCamCodec = (Button)view.findViewById(R.id.btnCamCodec);
 //		btnCamCodec.setOnClickListener(this);
+		
+		EventBus.getDefault().register(this);
+		
 		return view;
 	}
 
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
+		EventBus.getDefault().unregister(this);
 	}
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEventMainThread(CmdEvent event) {
+        if (event != null) {
+			startActivity(new Intent().setClass(mContext, NdkRealServerActivity.class));
+            System.out.println("onEventMainThread:"+event.getCmd()+" "+Thread.currentThread().getName());
+        } else {
+            System.out.println("event:"+event);
+        }
+    }
+	
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
