@@ -3,6 +3,7 @@ package com.great.happyness.medialib;
 import org.greenrobot.eventbus.EventBus;
 
 import com.great.happyness.evenbus.event.CmdEvent;
+import com.great.happyness.evenbus.event.FileRecvEvent;
 
 import android.annotation.SuppressLint;
 import android.media.MediaCodec;
@@ -26,6 +27,12 @@ public class NativeNetMedia
 		EventBus.getDefault().post(new CmdEvent(sockId));
 		Log.e(TAG, "onMediaCall sockId:"+sockId);
 		SockID = sockId;
+	}
+	
+	public void onFileState(int sockId, int command, int fileLen) {
+		EventBus.getDefault().post(new FileRecvEvent(sockId, command, fileLen));
+		Log.e(TAG, "onFileState sockId:"+sockId+" command:"+command+" fileLen:"+fileLen);
+		//SockID = sockId;
 	}
 	
 	static

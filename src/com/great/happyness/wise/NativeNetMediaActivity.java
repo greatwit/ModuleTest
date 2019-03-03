@@ -18,7 +18,9 @@ public class NativeNetMediaActivity extends Activity implements SurfaceHolder.Ca
 	Setting mDataSetting 		= new Setting();
 	String addr = mDataSetting.readData(Setting.DADDR);
 	String port = mDataSetting.readData(Setting.DPORT);
-	String file = mDataSetting.readData(Setting.DFILE);
+	String remoteFile = mDataSetting.readData(Setting.DFILE);
+	String fileName = remoteFile.substring(remoteFile.lastIndexOf("/")); 
+	String saveFile   = GApplication.getRootPath() + fileName;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -34,9 +36,10 @@ public class NativeNetMediaActivity extends Activity implements SurfaceHolder.Ca
 	
 	@Override
 	public void surfaceCreated(SurfaceHolder holder) {
-		Log.e(TAG, "addr:"+addr+" port:"+port+" file:"+file);
-		mNetMedia.StartRealVideoRecv(addr, Integer.parseInt(port), holder.getSurface());
+		Log.e(TAG, "addr:"+addr+" port:"+port+" remoteFile:"+remoteFile+" saveFile:"+saveFile);
+		//mNetMedia.StartRealVideoRecv(addr, Integer.parseInt(port), holder.getSurface());
 		//mNetMedia.StartFileVideoRecv(addr, Integer.parseInt(port), file, holder.getSurface());
+		mNetMedia.StartFileRecv(addr, Integer.parseInt(port), remoteFile, saveFile);
 	}
 
 	@Override
@@ -46,7 +49,8 @@ public class NativeNetMediaActivity extends Activity implements SurfaceHolder.Ca
 
 	@Override
 	public void surfaceDestroyed(SurfaceHolder holder) {
-		mNetMedia.StopVideoRecv();
+		//mNetMedia.StopVideoRecv();
+		mNetMedia.StopFileRecv();
 	}
 	
 }

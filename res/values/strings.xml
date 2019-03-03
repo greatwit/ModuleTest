@@ -19,4 +19,8 @@
     <string name="file_addr">file</string>
     <string name="local">Local:</string>
     <string name="localip">local ip</string>
+    <string name="totallen">TotalLen:</string>
+    <string name="curlen">CurLen:</string>
+    <string name="filename">FileName:</string>
+    <string name="usedtime">UsedTime:</string>
 </resources>

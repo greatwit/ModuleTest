@@ -9,6 +9,7 @@ import com.great.happyness.wise.EncodeUpperActivity;
 import com.great.happyness.wise.EncodeNativeActivity;
 import com.great.happyness.wise.NdkMcActivity;
 import com.great.happyness.wise.NdkRealServerActivity;
+import com.great.happyness.wise.NdkRecvFileActivity;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -52,7 +53,8 @@ public class HomeFragment extends Fragment
 	private Button camera_upper = null, camera_native = null, play_rec = null, 
 			play_ext = null, encode_upper = null, decode_upper = null, 
 			encode_native = null, decode_native = null, mcndk_encoder = null, 
-			mcndk_decoder = null, start_server = null, start_client = null;
+			mcndk_decoder = null, start_server = null, start_client = null,
+			file_recv = null, file_send = null;
 	
 	NativeNetMedia mNetMedia = new NativeNetMedia();
 	
@@ -97,6 +99,11 @@ public class HomeFragment extends Fragment
 		start_server.setOnClickListener(this);
 		start_client = (Button)view.findViewById(R.id.start_client);
 		start_client.setOnClickListener(this);
+		
+		file_recv = (Button)view.findViewById(R.id.file_recv);
+		file_recv.setOnClickListener(this);
+		file_send = (Button)view.findViewById(R.id.file_send);
+		file_send.setOnClickListener(this);
 		
 //		btnNativeRec = (Button)view.findViewById(R.id.btnNativeRec);
 //		btnNativeRec.setOnClickListener(this);
@@ -158,6 +165,7 @@ public class HomeFragment extends Fragment
 				intent.setClass(mContext, EncodeUpperActivity.class);
 				startActivity(intent);
 				break;
+				
 			case R.id.decode_upper:
 				intent.setClass(mContext, DecodeUpperActivity.class);
 				startActivity(intent);
@@ -167,6 +175,7 @@ public class HomeFragment extends Fragment
 				intent.setClass(mContext, EncodeNativeActivity.class);
 				startActivity(intent);
 				break;
+				
 			case R.id.decode_native:
 				intent.setClass(mContext, DecodeNativeActivity.class);
 				startActivity(intent);
@@ -176,6 +185,7 @@ public class HomeFragment extends Fragment
 				intent.setClass(mContext, NativeMediaRecorderActivity.class);//
 				startActivity(intent);
 				break;
+				
 			case R.id.play_ext:
 				intent.setClass(mContext, NdkMcActivity.class);
 				startActivity(intent);
@@ -210,6 +220,14 @@ public class HomeFragment extends Fragment
 			case R.id.start_client:
 				intent.setClass(mContext, NativeNetMediaActivity.class);//
 				startActivity(intent);
+				break;
+			
+			case R.id.file_recv:
+				intent.setClass(mContext, NdkRecvFileActivity.class);//
+				startActivity(intent);
+				break;	
+				
+			case R.id.file_send:
 				break;
 				
 //			case R.id.btnNativeRec:
