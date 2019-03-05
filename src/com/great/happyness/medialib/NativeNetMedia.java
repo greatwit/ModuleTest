@@ -5,6 +5,7 @@ import org.greenrobot.eventbus.EventBus;
 import com.great.happyness.evenbus.event.CmdEvent;
 import com.great.happyness.evenbus.event.FileRecvEvent;
 
+import android.R.string;
 import android.annotation.SuppressLint;
 import android.media.MediaCodec;
 import android.util.Log;
@@ -50,11 +51,16 @@ public class NativeNetMedia
 	
 	public native boolean StartNetWork();
 	public native boolean StopNetWork();
-	
 	public native boolean StartServer(String bindIp, int bindPort);
 	public native boolean StopServer();
-	public native boolean StartRealView(int sockId);
 	
+	public native boolean SetUpcamEncView(int sessionId);
+	public native boolean StartUpcamEncodec();
+	public native boolean StopUpcamEncodec();
+	public native boolean UpcamEncSetInt32(String key, int value);
+	public native boolean UpcamEncProvide(byte[] javaCameraFrame, int length);
+	
+	public native boolean StartRealView(int sockId);
     public native boolean StartRealCamCodec(Surface surface);
     public native boolean StopRealCamCodec();
     public native String  GetRealCameraParam();
