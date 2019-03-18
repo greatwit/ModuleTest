@@ -38,6 +38,7 @@
         <activity android:name=".NativeNetMediaActivity" android:screenOrientation="portrait"/>
         <activity android:name=".NdkRealServerActivity" android:screenOrientation="portrait"/>
         <activity android:name=".NdkRecvFileActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".NdkRecvFileAllActivity" android:screenOrientation="portrait"/>
     </application>
 
     

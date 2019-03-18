@@ -10,6 +10,7 @@ import com.great.happyness.wise.EncodeNativeActivity;
 import com.great.happyness.wise.NdkMcActivity;
 import com.great.happyness.wise.NdkRealServerActivity;
 import com.great.happyness.wise.NdkRecvFileActivity;
+import com.great.happyness.wise.NdkRecvFileAllActivity;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -228,6 +229,8 @@ public class HomeFragment extends Fragment
 				break;	
 				
 			case R.id.file_send:
+				intent.setClass(mContext, NdkRecvFileAllActivity.class);//
+				startActivity(intent);
 				break;
 				
 //			case R.id.btnNativeRec:
